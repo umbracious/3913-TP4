@@ -3,7 +3,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CurrencyTest {
 
-    //numero 1 type de test
+    //numero 1 type de test currencyConverter.Currency.convert(Double, Double)
+    //Couverture des instructions :
     @Test
     void testConvertInstructionsCoverage() {
         Currency.init();
