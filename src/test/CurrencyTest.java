@@ -4,6 +4,60 @@ import static org.junit.jupiter.api.Assertions.*;
 //Classe de tests pour la classe Currency en utilisant des tests de boîte blanche
 public class CurrencyTest {
 
+    // Tests boîte noire
+
+    // Regular test case
+    @Test
+    void testCasRegulier() {
+        Currency.init();
+        Double amount = 100.0;
+        Double exchangeValue = 1.32;
+        Double result = Currency.convert(amount, exchangeValue);
+        assertEquals(132.0, result);
+    }
+
+    // Test case where input amount is below 0
+    @Test
+    void testInputBelowZero() {
+        Currency.init();
+        Double amount = -100.0;
+        Double exchangeValue = 1.32;
+        Double result = Currency.convert(amount, exchangeValue);
+        assertEquals(-132.0, result);
+    }
+
+    // Test case where input amount is above 1 000 000
+    @Test
+    void testInputAboveOneMillion () {
+        Currency.init();
+        Double amount = 10000000.0;
+        Double exchangeValue = 1.32;
+        Double result = Currency.convert(amount, exchangeValue);
+        assertEquals(13200000.0, result);
+    }
+
+    // Test case where input value is equal to 1 000 000
+    @Test
+    void testInputEqualsOneMillion () {
+        Currency.init();
+        Double amount = 1000000.0;
+        Double exchangeValue = 1.32;
+        Double result = Currency.convert(amount, exchangeValue);
+        assertEquals(1320000.0, result);
+    }
+
+    // Test case where input value is equal to zero
+    @Test
+    void testInputEqualsZero () {
+        Currency.init();
+        Double amount = 0.0;
+        Double exchangeValue = 1.32;
+        Double result = Currency.convert(amount, exchangeValue);
+        assertEquals(0.0, result);
+    }
+
+    // Tests boîte blanche
+
     //Teste la conversion avec une valeur de change positive
     @Test
     void testConvertWithPositiveExchangeValue() {

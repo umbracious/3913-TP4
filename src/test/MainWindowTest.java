@@ -3,6 +3,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MainWindowTest {
 
+    // Tests boîte noire
+
+
+
     //test boite blanche pour currencyConverter.MainWindow.convert(String, String, ArrayList<Currency>, Double)
     @Test
     void testConvertInstructionsCoverage() {
