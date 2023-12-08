@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 //Classe de tests pour la classe Currency en utilisant des tests de boîte blanche
-public class CurrencyTestWhite {
+public class CurrencyTest {
 
     //Teste la conversion avec une valeur de change positive
     @Test
