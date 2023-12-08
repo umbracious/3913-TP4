@@ -34,7 +34,7 @@ public class CurrencyTestWhite {
         assertEquals(150.0, result, 0.01);
     }
 
-    //Teste la conversion pour couvrir les chemins de contrôle
+    //Teste la conversion pour couvrir les chemins de contrôle meme chose que pour les instructions
     @Test
     void testConvertControlFlowCoverage() {
         Currency.init();
@@ -45,7 +45,7 @@ public class CurrencyTestWhite {
         assertEquals(150.0, result1, 0.01);
         assertEquals(0.0, result2, 0.01);
     }
-
+//pour les criteres de jeux manquants il y a une grande similarité..
 
 }
 
