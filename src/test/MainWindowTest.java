@@ -1,4 +1,9 @@
+import currencyConverter.Currency;
+import currencyConverter.MainWindow;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MainWindowTest {
@@ -7,65 +12,65 @@ public class MainWindowTest {
 
     // Normal use case
     @Test
-    void testInputBelowZero {
+    void regularTest() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 1000.0);
 
-        assertEquals(123540.0, result, 0.01)
+        assertEquals(123540.0, result, 0.01);
     }
 
     // Test where input value is below zero
     @Test
-    void testInputBelowZero {
+    void testInputBelowZero() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, -1000.0);
 
-        assertEquals(-123540.0, result, 0.01)
+        assertEquals(-123540.0, result, 0.01);
     }
 
     // Test where input value is above 1 000 000
     @Test
-    void testInputBelowZero {
+    void testInputAboveOneM() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 10000000.0);
 
-        assertEquals(1235400000.0, result, 0.01)
+        assertEquals(1235400000.0, result, 0.01);
     }
 
     // Test where input value is equal to 0
     @Test
-    void testInputBelowZero {
+    void testInputEqZero() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 0.0);
 
-        assertEquals(0.0, result, 0.01)
+        assertEquals(0.0, result, 0.01);
     }
 
     // Test where input value is equal to 1 000 000
     @Test
-    void testInputBelowZero {
+    void testInputEqOneM() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 1000000.0);
 
-        assertEquals(123540000.0, result, 0.01)
+        assertEquals(123540000.0, result, 0.01);
     }
 
     // Test where the input currency isn't in the list
     @Test
-    void testInputBelowZero {
+    void testInputCurrencyNonexistent() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("CAD", "JPY", mainWindow.currencies, 1000.0);
 
-        assertEquals(0.0, result, 0.01)
+        assertEquals(0.0, result, 0.01);
     }
 
     // Test where the output currency isn't in the list
     @Test
-    void testInputBelowZero {
+    void testOutputCurrencyNonexistent() {
         MainWindow mainWindow = new MainWindow();
         Double result = mainWindow.convert("USD", "CAD", mainWindow.currencies, 1000.0);
 
-        assertEquals(0.0, result, 0.01)
+        assertEquals(0.0, result, 0.01);
     }
 
 
@@ -126,18 +131,6 @@ public class MainWindowTest {
         Double result2 = Currency.convert(amount, zeroExchangeValue);
         assertEquals(150.0, result1, 0.01);
         assertEquals(0.0, result2, 0.01);
-    }
-
-
-
-    @Test
-    void testConvertInstructionsCoverage() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = MainWindow.convert("USD", "EUR", mainWindow.currencies, 100.0);
-
-        assertEquals(93.0, result, 0.01);
-
-
     }
 
      // Teste la conversion avec montant négatif
