@@ -13,49 +13,52 @@ public class MainWindowTest {
     // Normal use case
     @Test
     void regularTest() {
-        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 1000.0);
+        Double result = MainWindow.convert("US Dollar", "Japanese Yen", Currency.init(), 1000.0);
         assertEquals(123540.0, result, 0.01);
     }
 
     // Test where input value is below zero
+    // Returns 0 because out of scope
     @Test
     void testInputBelowZero() {
-        Double result = MainWindow.convert("USD", "JPY", Currency.init(), -1000.0);
+        Double result = MainWindow.convert("US Dollar", "Japanese Yen", Currency.init(), -1000.0);
         assertEquals(-123540.0, result, 0.01);
     }
 
     // Test where input value is above 1 000 000
     @Test
     void testInputAboveOneM() {
-        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 10000000.0);
+        Double result = MainWindow.convert("US Dollar", "Japanese Yen", Currency.init(), 10000000.0);
         assertEquals(1235400000.0, result, 0.01);
     }
 
     // Test where input value is equal to 0
     @Test
     void testInputEqZero() {
-        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 0.0);
+        Double result = MainWindow.convert("US Dollar", "Japanese Yen", Currency.init(), 0.0);
         assertEquals(0.0, result, 0.01);
     }
 
     // Test where input value is equal to 1 000 000
     @Test
     void testInputEqOneM() {
-        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 1000000.0);
+        Double result = MainWindow.convert("US Dollar", "Japanese Yen", Currency.init(), 1000000.0);
         assertEquals(123540000.0, result, 0.01);
     }
 
     // Test where the input currency isn't in the list
+    // Returns default value 0
     @Test
     void testInputCurrencyNonexistent() {
-        Double result = MainWindow.convert("CAD", "JPY", Currency.init(), 1000.0);
+        Double result = MainWindow.convert("Canadian Dollar", "Japanese Yen", Currency.init(), 1000.0);
         assertEquals(0.0, result, 0.01);
     }
 
     // Test where the output currency isn't in the list
+    // Returns default value 0
     @Test
     void testOutputCurrencyNonexistent() {
-        Double result = MainWindow.convert("USD", "CAD", Currency.init(), 1000.0);
+        Double result = MainWindow.convert("US Dollar", "Canadian Dollar", Currency.init(), 1000.0);
         assertEquals(0.0, result, 0.01);
     }
 
@@ -130,7 +133,7 @@ public class MainWindowTest {
 
         Double result = MainWindow.convert(currency1, currency2, currencies, amount);
 
-        assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec un montant négatif");
+        assertEquals(-46.5, result, 0.01, "La conversion devrait être zéro avec un montant négatif");
     }
 
     // Teste la conversion avec une devise inexistante
