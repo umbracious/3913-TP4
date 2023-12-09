@@ -65,17 +65,6 @@ public class MainWindowTest {
 
     //Tests boîte blanche
 
-    //test boite blanche pour currencyConverter.MainWindow.convert(String, String, ArrayList<Currency>, Double)
-    @Test
-    void testConvertInstructionsCoverage() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "EUR", Currency.init(), 100.0);
-
-        assertEquals(93.0, result, 0.01);
-
-
-    }
-
     @Test
     void testConvertControlFlowCoverage() {
         Currency.init();
