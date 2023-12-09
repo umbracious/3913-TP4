@@ -1,14 +1,10 @@
 package currencyConverter;
-
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 //Classe de tests pour la classe Currency en utilisant des tests de boîte blanche
 public class CurrencyTest {
-
     // Tests boîte noire
-
     // Regular test case
     @Test
     void testCasRegulier() {
@@ -17,7 +13,6 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, exchangeValue);
         assertEquals(132.0, result, 0.01);
     }
-
     // Test case where input amount is below 0
     @Test
     void testInputBelowZero() {
@@ -26,7 +21,6 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, exchangeValue);
         assertEquals(-132.0, result, 0.01);
     }
-
     // Test case where input amount is above 1 000 000
     @Test
     void testInputAboveOneMillion () {
@@ -35,7 +29,6 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, exchangeValue);
         assertEquals(13200000.0, result, 0.01);
     }
-
     // Test case where input value is equal to 1 000 000
     @Test
     void testInputEqualsOneMillion () {
@@ -44,7 +37,6 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, exchangeValue);
         assertEquals(1320000.0, result, 0.01);
     }
-
     // Test case where input value is equal to zero
     @Test
     void testInputEqualsZero () {
@@ -53,9 +45,7 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, exchangeValue);
         assertEquals(0.0, result, 0.01);
     }
-
     // Tests boîte blanche
-
     //Teste la conversion avec une valeur de change positive
     @Test
     void testConvertWithPositiveExchangeValue() {
@@ -65,7 +55,6 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, positiveExchangeValue);
         assertTrue(result > 0, "La conversion devrait être positive");
     }
-
     //Teste la conversion avec une valeur de change nulle
     @Test
     void testConvertWithZeroExchangeValue() {
@@ -76,7 +65,6 @@ public class CurrencyTest {
         assertEquals(0.0, result, 0.01, "La conversion devrait " +
                 "être zéro avec un taux de change nul");
     }
-
     //Teste la conversion pour couvrir les instructions
     @Test
     void testConvertInstructionsCoverage() {
@@ -86,7 +74,6 @@ public class CurrencyTest {
         Double result = Currency.convert(amount, exchangeValue);
         assertEquals(150.0, result, 0.01);
     }
-
     //Teste la conversion pour couvrir les chemins de contrôle meme chose que pour les instructions
     @Test
     void testConvertControlFlowCoverage() {
@@ -99,7 +86,6 @@ public class CurrencyTest {
         assertEquals(0.0, result2, 0.01);
     }
 //pour les criteres de jeux manquants il y a une grande similarité..
-
 }
 
 /**
