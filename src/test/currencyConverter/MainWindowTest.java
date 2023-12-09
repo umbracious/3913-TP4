@@ -1,5 +1,5 @@
-import currencyConverter.Currency;
-import currencyConverter.MainWindow;
+package currencyConverter;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -119,45 +119,45 @@ public class MainWindowTest {
         assertEquals(0.0, result2, 0.01);
     }
 
-     // Teste la conversion avec montant négatif
-     @Test
-     void testConvertNegativeAmount() {
-         MainWindow window = new MainWindow();
-         ArrayList<Currency> currencies = Currency.init();
-         Double amount = -50.0;
-         String currency1 = "US Dollar";
-         String currency2 = "Euro";
- 
-         Double result = MainWindow.convert(currency1, currency2, currencies, amount);
- 
-         assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec un montant négatif");
-     }
- 
-     // Teste la conversion avec une devise inexistante
-     @Test
-     void testConvertNonexistentCurrency() {
-         MainWindow window = new MainWindow();
-         ArrayList<Currency> currencies = Currency.init();
-         Double amount = 100.0;
-         String currency1 = "NonexistentCurrency";
-         String currency2 = "Euro";
- 
-         Double result = MainWindow.convert(currency1, currency2, currencies, amount);
- 
-         assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec une devise inexistante");
-     }
- 
-     // Teste la conversion avec une deuxième devise inexistante
-     @Test
-     void testConvertNonexistentOutputCurrency() {
-         MainWindow window = new MainWindow();
-         ArrayList<Currency> currencies = Currency.init();
-         Double amount = 100.0;
-         String currency1 = "US Dollar";
-         String currency2 = "NonexistentCurrency";
- 
-         Double result = MainWindow.convert(currency1, currency2, currencies, amount);
- 
-         assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec une deuxième devise inexistante");
-     }
+    // Teste la conversion avec montant négatif
+    @Test
+    void testConvertNegativeAmount() {
+        MainWindow window = new MainWindow();
+        ArrayList<Currency> currencies = Currency.init();
+        Double amount = -50.0;
+        String currency1 = "US Dollar";
+        String currency2 = "Euro";
+
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+
+        assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec un montant négatif");
+    }
+
+    // Teste la conversion avec une devise inexistante
+    @Test
+    void testConvertNonexistentCurrency() {
+        MainWindow window = new MainWindow();
+        ArrayList<Currency> currencies = Currency.init();
+        Double amount = 100.0;
+        String currency1 = "NonexistentCurrency";
+        String currency2 = "Euro";
+
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+
+        assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec une devise inexistante");
+    }
+
+    // Teste la conversion avec une deuxième devise inexistante
+    @Test
+    void testConvertNonexistentOutputCurrency() {
+        MainWindow window = new MainWindow();
+        ArrayList<Currency> currencies = Currency.init();
+        Double amount = 100.0;
+        String currency1 = "US Dollar";
+        String currency2 = "NonexistentCurrency";
+
+        Double result = MainWindow.convert(currency1, currency2, currencies, amount);
+
+        assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec une deuxième devise inexistante");
+    }
 }
