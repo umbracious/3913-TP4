@@ -13,63 +13,49 @@ public class MainWindowTest {
     // Normal use case
     @Test
     void regularTest() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 1000.0);
-
+        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 1000.0);
         assertEquals(123540.0, result, 0.01);
     }
 
     // Test where input value is below zero
     @Test
     void testInputBelowZero() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, -1000.0);
-
+        Double result = MainWindow.convert("USD", "JPY", Currency.init(), -1000.0);
         assertEquals(-123540.0, result, 0.01);
     }
 
     // Test where input value is above 1 000 000
     @Test
     void testInputAboveOneM() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 10000000.0);
-
+        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 10000000.0);
         assertEquals(1235400000.0, result, 0.01);
     }
 
     // Test where input value is equal to 0
     @Test
     void testInputEqZero() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 0.0);
-
+        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 0.0);
         assertEquals(0.0, result, 0.01);
     }
 
     // Test where input value is equal to 1 000 000
     @Test
     void testInputEqOneM() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 1000000.0);
-
+        Double result = MainWindow.convert("USD", "JPY", Currency.init(), 1000000.0);
         assertEquals(123540000.0, result, 0.01);
     }
 
     // Test where the input currency isn't in the list
     @Test
     void testInputCurrencyNonexistent() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("CAD", "JPY", mainWindow.currencies, 1000.0);
-
+        Double result = MainWindow.convert("CAD", "JPY", Currency.init(), 1000.0);
         assertEquals(0.0, result, 0.01);
     }
 
     // Test where the output currency isn't in the list
     @Test
     void testOutputCurrencyNonexistent() {
-        MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "CAD", mainWindow.currencies, 1000.0);
-
+        Double result = MainWindow.convert("USD", "CAD", Currency.init(), 1000.0);
         assertEquals(0.0, result, 0.01);
     }
 
@@ -80,7 +66,7 @@ public class MainWindowTest {
     @Test
     void testConvertInstructionsCoverage() {
         MainWindow mainWindow = new MainWindow();
-        Double result = mainWindow.convert("USD", "EUR", mainWindow.currencies, 100.0);
+        Double result = mainWindow.convert("USD", "EUR", Currency.init(), 100.0);
 
         assertEquals(93.0, result, 0.01);
 

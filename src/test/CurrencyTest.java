@@ -10,7 +10,6 @@ public class CurrencyTest {
     // Regular test case
     @Test
     void testCasRegulier() {
-        Currency.init();
         Double amount = 100.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
@@ -20,7 +19,6 @@ public class CurrencyTest {
     // Test case where input amount is below 0
     @Test
     void testInputBelowZero() {
-        Currency.init();
         Double amount = -100.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
@@ -30,7 +28,6 @@ public class CurrencyTest {
     // Test case where input amount is above 1 000 000
     @Test
     void testInputAboveOneMillion () {
-        Currency.init();
         Double amount = 10000000.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
@@ -40,7 +37,6 @@ public class CurrencyTest {
     // Test case where input value is equal to 1 000 000
     @Test
     void testInputEqualsOneMillion () {
-        Currency.init();
         Double amount = 1000000.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
@@ -50,7 +46,6 @@ public class CurrencyTest {
     // Test case where input value is equal to zero
     @Test
     void testInputEqualsZero () {
-        Currency.init();
         Double amount = 0.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
@@ -76,7 +71,8 @@ public class CurrencyTest {
         Double amount = 100.0;
         Double zeroExchangeValue = 0.0;
         Double result = Currency.convert(amount, zeroExchangeValue);
-        assertEquals(0.0, result, 0.01, "La conversion devrait être zéro avec un taux de change nul");
+        assertEquals(0.0, result, 0.01, "La conversion devrait " +
+                "être zéro avec un taux de change nul");
     }
 
     //Teste la conversion pour couvrir les instructions
