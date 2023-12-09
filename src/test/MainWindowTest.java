@@ -49,7 +49,26 @@ public class MainWindowTest {
 
         assertEquals(123540000.0, result, 0.01)
     }
-    
+
+    // Test where the input currency isn't in the list
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("CAD", "JPY", mainWindow.currencies, 1000.0);
+
+        assertEquals(0.0, result, 0.01)
+    }
+
+    // Test where the output currency isn't in the list
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("USD", "CAD", mainWindow.currencies, 1000.0);
+
+        assertEquals(0.0, result, 0.01)
+    }
+
+
     //Tests boîte blanche
 
     //test boite blanche pour currencyConverter.MainWindow.convert(String, String, ArrayList<Currency>, Double)
