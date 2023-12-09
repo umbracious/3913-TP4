@@ -13,7 +13,7 @@ public class CurrencyTest {
         Double amount = 100.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
-        assertEquals(132.0, result);
+        assertEquals(132.0, result, 0.01);
     }
 
     // Test case where input amount is below 0
@@ -23,7 +23,7 @@ public class CurrencyTest {
         Double amount = -100.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
-        assertEquals(-132.0, result);
+        assertEquals(-132.0, result, 0.01);
     }
 
     // Test case where input amount is above 1 000 000
@@ -33,7 +33,7 @@ public class CurrencyTest {
         Double amount = 10000000.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
-        assertEquals(13200000.0, result);
+        assertEquals(13200000.0, result, 0.01);
     }
 
     // Test case where input value is equal to 1 000 000
@@ -43,7 +43,7 @@ public class CurrencyTest {
         Double amount = 1000000.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
-        assertEquals(1320000.0, result);
+        assertEquals(1320000.0, result, 0.01);
     }
 
     // Test case where input value is equal to zero
@@ -53,7 +53,7 @@ public class CurrencyTest {
         Double amount = 0.0;
         Double exchangeValue = 1.32;
         Double result = Currency.convert(amount, exchangeValue);
-        assertEquals(0.0, result);
+        assertEquals(0.0, result, 0.01);
     }
 
     // Tests boîte blanche

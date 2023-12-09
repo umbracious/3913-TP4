@@ -5,13 +5,58 @@ public class MainWindowTest {
 
     // Tests boîte noire
 
+    // Normal use case
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 1000.0);
 
+        assertEquals(123540.0, result, 0.01)
+    }
+
+    // Test where input value is below zero
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, -1000.0);
+
+        assertEquals(-123540.0, result, 0.01)
+    }
+
+    // Test where input value is above 1 000 000
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 10000000.0);
+
+        assertEquals(1235400000.0, result, 0.01)
+    }
+
+    // Test where input value is equal to 0
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 0.0);
+
+        assertEquals(0.0, result, 0.01)
+    }
+
+    // Test where input value is equal to 1 000 000
+    @Test
+    void testInputBelowZero {
+        MainWindow mainWindow = new MainWindow();
+        Double result = mainWindow.convert("USD", "JPY", mainWindow.currencies, 1000000.0);
+
+        assertEquals(123540000.0, result, 0.01)
+    }
+    
+    //Tests boîte blanche
 
     //test boite blanche pour currencyConverter.MainWindow.convert(String, String, ArrayList<Currency>, Double)
     @Test
     void testConvertInstructionsCoverage() {
         MainWindow mainWindow = new MainWindow();
-        Double result = MainWindow.convert("USD", "EUR", mainWindow.currencies, 100.0);
+        Double result = mainWindow.convert("USD", "EUR", mainWindow.currencies, 100.0);
 
         assertEquals(93.0, result, 0.01);
 
